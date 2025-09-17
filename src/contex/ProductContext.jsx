@@ -1,13 +1,19 @@
 import { createContext, useEffect, useState } from "react";
+
 export const ProductContext = createContext();
+
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // ✅ use env variable instead of hardcoding /api
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/api/products");
+        const res = await fetch(`${API_URL}/products`);
         if (!res.ok) throw new Error("error in fetching products");
         console.log("this is my res obj", res);
         const data = await res.json();
@@ -21,7 +27,8 @@ export function ProductProvider({ children }) {
       }
     };
     fetchProducts();
-  }, []);
+  }, [API_URL]);
+
   return (
     <ProductContext.Provider value={{ products, loading, error }}>
       {children}
