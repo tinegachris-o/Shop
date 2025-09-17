@@ -4,6 +4,8 @@ Perfect 👌🏽! Since this is your **shopping cart app (shoppingcart)** built 
 
 # 🛒 ShoppingCart App
 ![ShoppingCart Preview](./public/shop.png)
+ ## 🚀 Live Demo
+👉 [Click here to try the app](https://shop-client-vt20.onrender.com)
 
 
 A simple shopping cart web app built with **React + Vite** for the frontend and **JSON Server** as a mock backend. The app allows users to browse products, add them to the cart, and manage their shopping experience.
